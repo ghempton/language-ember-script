@@ -3,7 +3,7 @@
   'em'
 ]
 'firstLineMatch': '^#!.*\\bemberscript'
-'foldingStartMarker': '^\\s*class\\s+\\S.*$|.*(->|=>)\\s*$|.*[\\[{]\\s*$'
+'foldingStartMarker': '^\\s*class\\s+\\S.*$|.*(->|=>|~>)\\s*$|.*[\\[{]\\s*$'
 'foldingStopMarker': '^\\s*$|^\\s*[}\\]]\\s*$'
 'keyEquivalent': '^~C'
 'name': 'EmberScript'
@@ -15,7 +15,7 @@
       '2':
         'name': 'storage.type.function.emberscript'
     'comment': 'match stuff like: a -> … '
-    'match': '(\\([^()]*?\\))\\s*([=-]>)'
+    'match': '(\\([^()]*?\\))\\s*([=-~]>)'
     'name': 'meta.inline.function.emberscript'
   }
   {
@@ -85,7 +85,7 @@
     'patterns': [
       {
         'match': '@\\w*'
-        'name': 'storage.type.annotation.emberscriptscript'
+        'name': 'storage.type.annotation.emberscript'
       }
     ]
   }
@@ -130,7 +130,7 @@
         'name': 'punctuation.separator.key-value'
       '5':
         'name': 'keyword.operator.emberscript'
-    'match': '([a-zA-Z\\$_](\\w|\\$|\\.)*\\s*(?!\\::)((:)|(=)(?!>))(?!(\\s*\\(.*\\))?\\s*([=-]>)))'
+    'match': '([a-zA-Z\\$_](\\w|\\$|\\.)*\\s*(?!\\::)((:)|(=)(?!>))(?!(\\s*\\(.*\\))?\\s*([=-~]>)))'
     'name': 'variable.assignment.emberscript'
   }
   {
@@ -171,11 +171,11 @@
         'name': 'variable.parameter.function.emberscript'
       '4':
         'name': 'storage.type.function.emberscript'
-    'match': '(?x)\n\t\t\t\t(?<=^|\\s)\n\t\t\t\t(?=@?[a-zA-Z\\$_])\n\t\t\t\t(\n\t\t\t\t\t@?[a-zA-Z\\$_](\\w|\\$|:|\\.)*\\s*\n\t\t\t\t\t(?=[:=](\\s*\\(.*\\))?\\s*([=-]>))\n\t\t\t\t)\n\t\t\t'
+    'match': '(?x)\n\t\t\t\t(?<=^|\\s)\n\t\t\t\t(?=@?[a-zA-Z\\$_])\n\t\t\t\t(\n\t\t\t\t\t@?[a-zA-Z\\$_](\\w|\\$|:|\\.)*\\s*\n\t\t\t\t\t(?=[:=](\\s*\\(.*\\))?\\s*([=-~]>))\n\t\t\t\t)\n\t\t\t'
     'name': 'meta.function.emberscript'
   }
   {
-    'match': '[=-]>'
+    'match': '[=-~]>'
     'name': 'storage.type.function.emberscript'
   }
   {
@@ -204,7 +204,11 @@
         'name': 'keyword.control.inheritance.emberscript'
       '4':
         'name': 'entity.other.inherited-class.emberscript'
-    'match': '(class\\b)\\s+(@?[a-zA-Z\\$_][\\w\\.]*)?(?:\\s+(extends)\\s+(@?[a-zA-Z\\$\\._][\\w\\.]*))?'
+      '5':
+        'name': 'keyword.control.inheritance.emberscript'
+      '6':
+        'name': 'entity.other.inherited-class.emberscript'
+    'match': '((?:class|mixin)\\b)\\s+(@?[a-zA-Z\\$_][\\w\\.]*)?(?:\\s+(extends)\\s+(@?[a-zA-Z\\$\\._][\\w\\.]*))?(?:\\s+(with)\\s+(@?[a-zA-Z\\$\\._][\\w\\.]*))?'
     'name': 'meta.class.emberscript'
   }
   {

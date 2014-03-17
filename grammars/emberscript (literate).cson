@@ -113,7 +113,7 @@
     'name': 'meta.link.reference.def.markdown'
   }
   {
-    'begin': '^(?=\\S)(?![=-]{3,}(?=$))'
+    'begin': '^(?=\\S)(?![=-~]{3,}(?=$))'
     'end': '^(?:\\s*$|(?=[ ]{,3}>.))|(?=[ \\t]*\\n)(?<=^===|^====|=====|^---|^----|-----)[ \\t]*\\n|(?=^#)'
     'name': 'meta.paragraph.markdown'
     'patterns': [
@@ -264,7 +264,7 @@
           '2':
             'name': 'storage.type.function.emberscript'
         'comment': 'match stuff like: a -> … '
-        'match': '(\\([^()]*?\\))\\s*([=-]>)'
+        'match': '(\\([^()]*?\\))\\s*([=-~]>)'
         'name': 'meta.inline.function.emberscript'
       }
       {
@@ -452,7 +452,11 @@
             'name': 'keyword.control.inheritance.emberscript'
           '4':
             'name': 'entity.other.inherited-class.emberscript'
-        'match': '(class\\b)\\s+(@?[a-zA-Z\\$_][\\w\\.]*)?(?:\\s+(extends)\\s+(@?[a-zA-Z\\$\\._][\\w\\.]*))?'
+          '5':
+            'name': 'keyword.control.inheritance.emberscript'
+          '6':
+            'name': 'entity.other.inherited-class.emberscript'
+        'match': '((?:class|mixin)\\b)\\s+(@?[a-zA-Z\\$_][\\w\\.]*)?(?:\\s+(extends)\\s+(@?[a-zA-Z\\$\\._][\\w\\.]*))?(?:\\s+(with)\\s+(@?[a-zA-Z\\$\\._][\\w\\.]*))?'
         'name': 'meta.class.emberscript'
       }
       {
